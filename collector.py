@@ -35,11 +35,13 @@ def get_positions(directory):
 
 def get_expected_points(gw, directory):
     xPoints = {}
+    xPoints_next = {}
     try:
         fin = open(os.path.join(directory, 'xP' + str(gw) + '.csv'), 'rU')
         reader = csv.DictReader(fin)
         for row in reader:
             xPoints[int(row['id'])] = row['xP']
+            xPoints_next[int(row['id'])] = row['xP2']
     except:
         return xPoints    
     return xPoints
